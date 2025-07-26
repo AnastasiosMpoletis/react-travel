@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import AccordionItem from "./AccordionItem.jsx";
 
 const AccordionContext = createContext();
 
@@ -15,18 +16,13 @@ export function useAccordionContext() {
 export default function Accordion({ children, className }) {
   const [openItemId, setOpenItemId] = useState();
 
-  function openItem(id) {
-    setOpenItemId(id);
-  }
-
-  function closeItem() {
-    setOpenItemId(null);
+  function toggleItem(id) {
+    setOpenItemId(prevId => prevId === id ? null : id);
   }
 
   const contextValue = {
     openItemId,
-    openItem,
-    closeItem,
+    toggleItem,
   };
 
   return (
@@ -37,3 +33,11 @@ export default function Accordion({ children, className }) {
     </AccordionContext.Provider>
   );
 }
+
+/**
+ * In JavaScript, we can add custom properties to functions/components. 
+ * Here we add the AccordionItem as a property in Accordion.
+ * Item name is an example. We can use anything.
+ * Similar to an inner class in Java.
+ */
+Accordion.Item = AccordionItem;
