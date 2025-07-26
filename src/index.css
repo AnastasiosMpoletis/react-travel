@@ -61,10 +61,13 @@ main {
   color: #c1d9fa;
 }
 
-.accordion-item-content {
-  display: none;
+.accordion-item-content  {
   padding: 1rem;
   background-color: #2c344a;
+}
+
+.close {
+  display: none;
 }
 
 .open {

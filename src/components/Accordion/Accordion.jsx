@@ -1,5 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import AccordionItem from "./AccordionItem.jsx";
+import AccordionTitle from "./AccordionTitle.jsx";
+import AccordionContent from "./AccordionContent.jsx";
 
 const AccordionContext = createContext();
 
@@ -36,8 +38,10 @@ export default function Accordion({ children, className }) {
 
 /**
  * In JavaScript, we can add custom properties to functions/components. 
- * Here we add the AccordionItem as a property in Accordion.
- * Item name is an example. We can use anything.
+ * Here we add Accordion sub-components as a properties.
+ * We can use any name.
  * Similar to an inner class in Java.
  */
 Accordion.Item = AccordionItem;
+Accordion.Title = AccordionTitle;
+Accordion.Content = AccordionContent;
